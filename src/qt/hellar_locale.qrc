@@ -1,0 +1,9 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="en">locale/hellar_en.qm</file>
+        <file alias="ru">locale/hellar_ru.qm</file>
+	<file alias="de">locale/hellar_de.qm</file>
+	<file alias="es">locale/hellar_es.qm</file>
+	<file alias="uk">locale/hellar_uk.qm</file>
+    </qresource>
+</RCC>
