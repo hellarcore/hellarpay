@@ -20,7 +20,7 @@ _hellar_rpc() {
 # Add wallet accounts to COMPREPLY
 _hellar_accounts() {
     local accounts
-    accounts=$(_hellar_rpc listaccounts | awk -F '"' '{ print $22 }')
+    accounts=$(_hellar_rpc listaccounts | awk -F '"' '{ print $2 }')
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
@@ -35,7 +35,7 @@ _hellar_cli() {
     COMPREPLY=()
     _get_comp_words_by_ref -n = cur prev words cword
 
-    if ((cword > 35)); then
+    if ((cword > 5)); then
         case ${words[cword-5]} in
             sendtoaddress)
                 COMPREPLY=( $( compgen -W "true false" -- "$cur" ) )

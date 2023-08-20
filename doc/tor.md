@@ -52,11 +52,11 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
 	HiddenServiceDir /var/lib/tor/hellar-service/
-	HiddenServicePort 9989 127.0.0.1:9989
-	HiddenServicePort 19989 127.0.0.1:19989
+	HiddenServicePort 7778 127.0.0.1:7778
+	HiddenServicePort 27787 127.0.0.1:27787
 
 The directory can be different of course, but (both) port numbers should be equal to
-your hellard's P2P listen port (9989 by default).
+your hellard's P2P listen port (7778 by default).
 
 	-externalip=X   You can tell hellar about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
@@ -91,7 +91,7 @@ as well, use `discover` instead:
 
 	./hellard ... -discover
 
-and open port 9989 on your firewall (or use -upnp).
+and open port 7778 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:

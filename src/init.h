@@ -19,7 +19,7 @@ class thread_group;
 
 #ifdef ENABLE_WALLET
 extern CHelDB* phelDB;
-#endif
+#endif ENABLE_WALLET
 
 void StartShutdown();
 void StartRestart();
