@@ -1,15 +1,15 @@
-Hellar Core version 1.0.1
+Hellar Core version 1.0.2
 ==========================
 
 Release is now available from:
 
-  <https://www.hellar.io/downloads/#wallets>
+  <https://www.hellar.io/>
 
 This is a new major version release, bringing new features, various bugfixes and other improvements.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/Hellarpay/hellar/issues>
+  <https://github.com/hellarcore/hellarpay/issues>
 
 
 Upgrading and downgrading
@@ -38,7 +38,7 @@ stay unnoticed until spork 16 activation and thus surprise and hurt masternode o
 Downgrade warning
 -----------------
 
-### Downgrade to a version < 0.0.1
+### Downgrade to a version < 1.0.1
 
 Downgrading to a version smaller than 0.1 is only supported as long as DIP2/DIP3
 has not been activated. Activation will happen when enough miners signal compatibility
@@ -272,7 +272,7 @@ A lot of refactoring, code cleanups and other small fixes were done in this rele
 0.0.1.0 Change log
 ===================
 
-See detailed [set of changes](https://github.com/Hellarpay/hellar/compare/Hellarpay:v0.17.0.0).
+See detailed [set of changes](https://github.com/hellarcore/hellarpay/).
 
 Credits
 =======
@@ -303,9 +303,9 @@ As well as everyone that submitted issues, reviewed pull requests or helped tran
 Older releases
 ==============
 
-Hellar Core tree 0.0.1 was a fork of Dash Core tree 0.12,
+Hellar Core tree 1.0.1 was a fork of Sibcoin Core tree 0.17.0.x.,
 
-Hellar Core tree 1.0.x was a fork of Sibcoin Core tree 0.17.0.x.
+Hellar Core tree 1.0.2 was a fork of Hellar Core tree 1.0.1.x.
 
 
 These releases are considered obsolete. 
