@@ -253,6 +253,7 @@ public:
 
         vSeeds.push_back(CDNSSeedData("hellar.io", "dnsseed.hellar.io"));
         vSeeds.push_back(CDNSSeedData("masternode.pw", "dnsseed.masternode.pw"));
+        vSeeds.push_back(CDNSSeedData("spork-node.pw", "dnsseed.spork-node.pw"));
 
         // Main network P2PKH address starts with 'H'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,40);
@@ -294,6 +295,17 @@ public:
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
             (  0, uint256S("0x00000fa67255a934520d6ff572828aa339af437d78ce6e6e6f4b2bd9ad30a0b9"))
+            ( 500, uint256S("0x000007e8f0e4cbcb22496b3ed442b9f183dac0f60bfa533a299be31da99ab478"))
+            ( 1500, uint256S("0x000006e92a2e4b9e1a880f21f57c172a5d3eab7591aff884253ef93462d3441c"))
+            ( 10000, uint256S("0x00000ae3d5cae22adf0a6034969fdc4330dd52bbb3024c29efb4fe2361357dc5"))
+            ( 70000, uint256S("0x000002445919ce6223eab8203e92664a9f628dce036f79b9f2d5c4bfaae45b57"))
+            ( 85500, uint256S("0x0000030ba3904cd189fd7714f716fddd1764a5c64429e794bf4f99a884dd4b19"))
+            ( 110000, uint256S("0x00000813372a7930f3de179f0e9cae87d29a26dbd1aa155e98a7f7035f3c5eaf"))
+            ( 237000, uint256S("0x0000037d7e5ca72596140ab572ae4a06f5081bb77eab75c5d006666900a08197"))
+            ( 312645, uint256S("0x00000482afe65f54e1586a36a906683d109a2f31a0acc6d2bd9f760eba1cbdb9"))
+            ( 412750, uint256S("0x0000027be12484bab43754b58bc5132e97bc01111f755a40bc6d876996463fd3"))
+            ( 541211, uint256S("0x000003f6bf8e861b2798220370bbb5ba15ac9f3a61a5161c989d476641f1cfd6"))
+            ( 604100, uint256S("0x0000009c5668be916f2563a6898936721fd3430bbb924895ee98e09eed52823c")),
         };
 
         chainTxData = ChainTxData{
@@ -397,6 +409,7 @@ public:
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
         vSeeds.push_back(CDNSSeedData("masternode.pw", "test-dnsseed.masternode.pw"));
+        vSeeds.push_back(CDNSSeedData("spork-node.pw", "test-dnsseed.spork-node.pw"));
 
         // Testnet Hellar addresses starts with 'm'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
