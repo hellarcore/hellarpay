@@ -1,6 +1,6 @@
 <h1 align="center"> 
 <br/><br/>
-<img src="https://github.com/Hellarpay/hellar/blob/main/doc/hellarlogo.png" alt="Hellar" width="300"/>
+<img src="https://github.com/hellarcore/hellarpay/blob/master/src/qt/res/images/hellar.png" alt="Hellar" width="300"/>
 </h1>
 
 <div align="center">
