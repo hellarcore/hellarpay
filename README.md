@@ -11,8 +11,9 @@ Hellar Core
 
 <div align="center">
 
-[![HellarcoinBadge](https://github.com/Hellarpay/hellar/blob/main/doc/Hellar-Coin-Pink.svg)](https://hellar.io)
-[![MuchWow](https://github.com/Hellarpay/hellar/blob/main/doc/MuchWoW.svg)](https://hellar.io)
+|CI|master|develop|
+|-|-|-|
+|GitHub|[![Build Status](https://github.com/hellarcore/hellarpay/blob/master/src/qt/res/images/pipeline.svg)]()|[![Build Status](https://github.com/hellarcore/hellarpay/blob/master/src/qt/res/images/pipeline%20(1).svg)]()|
 
 
 <div align="left">
