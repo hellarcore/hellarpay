@@ -6,7 +6,7 @@
 #include "sync.h"
 #include "util.h"
 
-#include <evo/deterministicmns.h>
+#include <pro/deterministicmns.h>
 
 #include <QMenu>
 #include <QTimer>

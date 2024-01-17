@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018 The Dash Core developers
+// Copyright (c) 2023-2024 The Hellar Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,8 +11,8 @@
 #include "primitives/transaction.h"
 #include "validationinterface.h"
 
-#include "evo/deterministicmns.h"
-#include "evo/providertx.h"
+#include "pro/deterministicmns.h"
+#include "pro/providertx.h"
 
 struct CActiveMasternodeInfo;
 class CActiveLegacyMasternodeManager;

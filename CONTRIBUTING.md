@@ -141,7 +141,7 @@ in the future, they may be removed by the Repository Maintainer.
 
 ### Refactoring
 
-Refactoring is a necessary part of any software project's evolution. The
+Refactoring is a necessary part of any software project's progress. The
 following guidelines cover refactoring pull requests for the project.
 
 There are three categories of refactoring, code only moves, code style fixes,

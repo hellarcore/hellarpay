@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2023 Hellar Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #include "netfulfilledman.h"
 #include "netmessagemaker.h"
 #include "ui_interface.h"
-#include "evo/deterministicmns.h"
+#include "pro/deterministicmns.h"
 
 class CMasternodeSync;
 CMasternodeSync masternodeSync;

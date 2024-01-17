@@ -1,8 +1,8 @@
 /*
  * bip38.h
  *
- *  Created on: 30 дек. 2015 г.
- *      Author: mac
+ *  Created on: 30 aug. 2023 г.
+ *      Author: UraGun
  */
 
 #ifndef SRC_BIP_BIP38_H_

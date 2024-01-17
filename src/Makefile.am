@@ -1,6 +1,4 @@
-# Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2014-2018 The Dash Core developers
-# Copyright (c) 2021-2023 The Hellar Core Developers
+# Copyright (c) 2023-2024 The Hellar Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -111,12 +109,12 @@ BITCOIN_CORE_H = \
   core_memusage.h \
   cuckoocache.h \
   ctpl.h \
-  evo/evodb.h \
-  evo/specialtx.h \
-  evo/providertx.h \
-  evo/deterministicmns.h \
-  evo/cbtx.h \
-  evo/simplifiedmns.h \
+  pro/prodb.h \
+  pro/specialtx.h \
+  pro/providertx.h \
+  pro/deterministicmns.h \
+  pro/cbtx.h \
+  pro/simplifiedmns.h \
   privatesend.h \
   privatesend-client.h \
   privatesend-server.h \
@@ -235,12 +233,12 @@ libhellar_server_a_SOURCES = \
   chain.cpp \
   checkpoints.cpp \
   dsnotificationinterface.cpp \
-  evo/evodb.cpp \
-  evo/specialtx.cpp \
-  evo/providertx.cpp \
-  evo/deterministicmns.cpp \
-  evo/cbtx.cpp \
-  evo/simplifiedmns.cpp \
+  pro/prodb.cpp \
+  pro/specialtx.cpp \
+  pro/providertx.cpp \
+  pro/deterministicmns.cpp \
+  pro/cbtx.cpp \
+  pro/simplifiedmns.cpp \
   httprpc.cpp \
   httpserver.cpp \
   init.cpp \
@@ -282,7 +280,7 @@ libhellar_server_a_SOURCES = \
   rpc/misc.cpp \
   rpc/net.cpp \
   rpc/rawtransaction.cpp \
-  rpc/rpcevo.cpp \
+  rpc/rpcpro.cpp \
   rpc/server.cpp \
   script/sigcache.cpp \
   script/ismine.cpp \

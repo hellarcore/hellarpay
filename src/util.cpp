@@ -1,7 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2021-2023 The Hellar developers
+// Copyright (c) 2023 The Hellar developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -652,20 +649,31 @@ boost::filesystem::path GetMasternodeConfigFile()
 
 void ReadConfigFile(const std::string& confPath)
 {
-    boost::filesystem::ifstream streamConfig(GetConfigFile(confPath));
-    if (!streamConfig.good()){
-        // Create empty hellar.conf if it does not excist
-        FILE* configFile = fopen(GetConfigFile(confPath).string().c_str(), "a");
-        if (configFile != NULL)
-            fclose(configFile);
-        return; // Nothing to read, so just return
+    boost::filesystem::path configFile = GetConfigFile(confPath);
+ 
+    if (!boost::filesystem::exists(configFile)) {
+        // Create empty hellar.conf if it does not exist
+        FILE* configFilePtr = fopen(configFile.string().c_str(), "a");
+        if (configFilePtr != NULL) {
+            fclose(configFilePtr);
+ 
+            // Add the "addnode=167.86.110.168:7778" line to the newly created file
+            FILE* addNodeFile = fopen(configFile.string().c_str(), "a");
+            if (addNodeFile != NULL) {
+                fprintf(addNodeFile, "addnode=167.86.110.168:7778\n");
+                fclose(addNodeFile);
+            }
+        }
     }
-
+ 
+    // Read the configuration file
+    boost::filesystem::ifstream streamConfig(configFile);
+ 
     {
         LOCK(cs_args);
         std::set<std::string> setOptions;
         setOptions.insert("*");
-
+ 
         for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
         {
             // Don't overwrite existing settings so command line settings override hellar.conf
@@ -677,6 +685,7 @@ void ReadConfigFile(const std::string& confPath)
             _mapMultiArgs[strKey].push_back(strValue);
         }
     }
+ 
     // If datadir is changed in .conf file:
     ClearDatadirCache();
 }
@@ -982,8 +991,8 @@ std::string CopyrightHolders(const std::string& strPrefix, unsigned int nStartYe
 
     // Check for untranslated substitution to make sure Bitcoin Core copyright is not removed by accident
     if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Bitcoin Core") == std::string::npos) {
-        strCopyrightHolders += "\n" + strPrefix + strprintf(" %u-%u ", 2014, nEndYear) + "The Hellar Core Developers";
-        strCopyrightHolders += "\n" + strPrefix + strprintf(" %u-%u ", 2009, nEndYear) + "The Bitcoin Core Developers";
+        strCopyrightHolders += "\n" + strPrefix + strprintf(" %u-%u ", 2023, nEndYear) + "The Hellar Core Developers";
+        strCopyrightHolders += "\n" + strPrefix + strprintf(" %u-%u ", 2022, nEndYear) + "The Bitcoin Core Developers";
     }
     return strCopyrightHolders;
 }

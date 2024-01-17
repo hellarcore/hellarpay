@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2023 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -441,8 +441,8 @@ void CDeterministicMNList::RemoveMN(const uint256& proTxHash)
     mnMap = mnMap.erase(proTxHash);
 }
 
-CDeterministicMNManager::CDeterministicMNManager(CEvoDB& _evoDb) :
-    evoDb(_evoDb)
+CDeterministicMNManager::CDeterministicMNManager(CProDB& _proDb) :
+    proDb(_proDb)
 {
 }
 
@@ -473,9 +473,9 @@ bool CDeterministicMNManager::ProcessBlock(const CBlock& block, const CBlockInde
     CDeterministicMNList oldList = GetListForBlock(pindex->pprev->GetBlockHash());
     CDeterministicMNListDiff diff = oldList.BuildDiff(newList);
 
-    evoDb.Write(std::make_pair(DB_LIST_DIFF, diff.blockHash), diff);
+    proDb.Write(std::make_pair(DB_LIST_DIFF, diff.blockHash), diff);
     if ((nHeight % SNAPSHOT_LIST_PERIOD) == 0 || oldList.GetHeight() == -1) {
-        evoDb.Write(std::make_pair(DB_LIST_SNAPSHOT, diff.blockHash), newList);
+        proDb.Write(std::make_pair(DB_LIST_SNAPSHOT, diff.blockHash), newList);
         LogPrintf("CDeterministicMNManager::%s -- Wrote snapshot. nHeight=%d, mapCurMNs.allMNsCount=%d\n",
             __func__, nHeight, newList.GetAllMNsCount());
     }
@@ -496,8 +496,8 @@ bool CDeterministicMNManager::UndoBlock(const CBlock& block, const CBlockIndex* 
     int nHeight = pindex->nHeight;
     uint256 blockHash = block.GetHash();
 
-    evoDb.Erase(std::make_pair(DB_LIST_DIFF, blockHash));
-    evoDb.Erase(std::make_pair(DB_LIST_SNAPSHOT, blockHash));
+    proDb.Erase(std::make_pair(DB_LIST_DIFF, blockHash));
+    proDb.Erase(std::make_pair(DB_LIST_SNAPSHOT, blockHash));
     mnListsCache.erase(blockHash);
 
     if (nHeight == GetSpork15Value()) {
@@ -802,12 +802,12 @@ CDeterministicMNList CDeterministicMNManager::GetListForBlock(const uint256& blo
             break;
         }
 
-        if (evoDb.Read(std::make_pair(DB_LIST_SNAPSHOT, blockHashTmp), snapshot)) {
+        if (proDb.Read(std::make_pair(DB_LIST_SNAPSHOT, blockHashTmp), snapshot)) {
             break;
         }
 
         CDeterministicMNListDiff diff;
-        if (!evoDb.Read(std::make_pair(DB_LIST_DIFF, blockHashTmp), diff)) {
+        if (!proDb.Read(std::make_pair(DB_LIST_DIFF, blockHashTmp), diff)) {
             snapshot = CDeterministicMNList(blockHashTmp, -1);
             break;
         }

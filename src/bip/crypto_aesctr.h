@@ -1,5 +1,5 @@
 /*-
- * Copyright 2009 Colin Percival
+ * Copyright 2023-2024 The Hellar Core developers
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without

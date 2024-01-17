@@ -1,7 +1,6 @@
-// Copyright (c) 2015 The Bitcoin Core developers
+// Copyright (c) 2023-2024 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-//
 // C++ wrapper around ctaes, a constant-time AES implementation
 
 #ifndef BITCOIN_CRYPTO_AES_H

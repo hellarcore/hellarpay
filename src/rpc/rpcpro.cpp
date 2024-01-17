@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2023 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,10 +19,10 @@
 
 #include "netbase.h"
 
-#include "evo/specialtx.h"
-#include "evo/providertx.h"
-#include "evo/deterministicmns.h"
-#include "evo/simplifiedmns.h"
+#include "pro/specialtx.h"
+#include "pro/providertx.h"
+#include "pro/deterministicmns.h"
+#include "pro/simplifiedmns.h"
 
 #include "bls/bls.h"
 
@@ -1193,8 +1193,8 @@ UniValue _bls(const JSONRPCRequest& request)
 static const CRPCCommand commands[] =
 { //  category              name                      actor (function)         okSafeMode
   //  --------------------- ------------------------  -----------------------  ----------
-    { "evo",                "bls",                    &_bls,                   false, {}  },
-    { "evo",                "protx",                  &protx,                  false, {}  },
+    { "pro",                "bls",                    &_bls,                   false, {}  },
+    { "pro",                "protx",                  &protx,                  false, {}  },
 };
 
 void RegisterEvoRPCCommands(CRPCTable &tableRPC)

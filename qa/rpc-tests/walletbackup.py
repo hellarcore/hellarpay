@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2016 The Bitcoin Core developers
+# Copyright (c) 2023-2024 The Hellar Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -159,7 +159,7 @@ class WalletBackupTest(BitcoinTestFramework):
         # Start node2 with no chain
         shutil.rmtree(self.options.tmpdir + "/node2/regtest/blocks")
         shutil.rmtree(self.options.tmpdir + "/node2/regtest/chainstate")
-        shutil.rmtree(self.options.tmpdir + "/node2/regtest/evodb")
+        shutil.rmtree(self.options.tmpdir + "/node2/regtest/prodb")
 
         # Restore wallets from backup
         shutil.copyfile(tmpdir + "/node0/wallet.bak", tmpdir + "/node0/regtest/wallet.dat")
@@ -181,7 +181,7 @@ class WalletBackupTest(BitcoinTestFramework):
         #start node2 with no chain
         shutil.rmtree(self.options.tmpdir + "/node2/regtest/blocks")
         shutil.rmtree(self.options.tmpdir + "/node2/regtest/chainstate")
-        shutil.rmtree(self.options.tmpdir + "/node2/regtest/evodb")
+        shutil.rmtree(self.options.tmpdir + "/node2/regtest/prodb")
 
         self.start_three()
 

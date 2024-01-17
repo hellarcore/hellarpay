@@ -1,7 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2021-2023 The Hellar developers
+// Copyright (c) 2023 The Hellar developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,10 +40,10 @@
 #include "masternodeman.h"
 #include "masternode-payments.h"
 
-#include "evo/specialtx.h"
-#include "evo/providertx.h"
-#include "evo/deterministicmns.h"
-#include "evo/cbtx.h"
+#include "pro/specialtx.h"
+#include "pro/providertx.h"
+#include "pro/deterministicmns.h"
+#include "pro/cbtx.h"
 
 #include <atomic>
 #include <sstream>
@@ -1240,15 +1237,15 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
         return ret;
     }
                                                                       // mainnet:
-    if(nHeight > nMNPIBlock)                  ret += blockValue / 20; // 158000 - 25.0% - 2014-10-24
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 1)) ret += blockValue / 20; // 175280 - 30.0% - 2014-11-25
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 2)) ret += blockValue / 20; // 192560 - 35.0% - 2014-12-26
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 3)) ret += blockValue / 40; // 209840 - 37.5% - 2015-01-26
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 4)) ret += blockValue / 40; // 227120 - 40.0% - 2015-02-27
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 5)) ret += blockValue / 40; // 244400 - 42.5% - 2015-03-30
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 6)) ret += blockValue / 40; // 261680 - 45.0% - 2015-05-01
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 7)) ret += blockValue / 40; // 278960 - 47.5% - 2015-06-01
-    if(nHeight > nMNPIBlock+(nMNPIPeriod* 9)) ret += blockValue / 40; // 313520 - 50.0% - 2015-08-03
+    if(nHeight > nMNPIBlock)                  ret += blockValue / 20; // 158000 - 25.0% - 2023-10-24
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 1)) ret += blockValue / 20; // 175280 - 30.0% - 2023-11-25
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 2)) ret += blockValue / 20; // 192560 - 35.0% - 2023-12-26
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 3)) ret += blockValue / 40; // 209840 - 37.5% - 2024-01-26
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 4)) ret += blockValue / 40; // 227120 - 40.0% - 2024-02-27
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 5)) ret += blockValue / 40; // 244400 - 42.5% - 2024-03-30
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 6)) ret += blockValue / 40; // 261680 - 45.0% - 2024-05-01
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 7)) ret += blockValue / 40; // 278960 - 47.5% - 2024-06-01
+    if(nHeight > nMNPIBlock+(nMNPIPeriod* 9)) ret += blockValue / 40; // 313520 - 50.0% - 2024-08-03
 
     return ret;
 }
@@ -1655,11 +1652,11 @@ static DisconnectResult DisconnectBlock(const CBlock& block, CValidationState& s
     assert(pindex->GetBlockHash() == view.GetBestBlock());
 
     bool fDIP0003Active = VersionBitsState(pindex->pprev, Params().GetConsensus(), Consensus::DEPLOYMENT_DIP0003, versionbitscache) == THRESHOLD_ACTIVE;
-    bool fHasBestBlock = evoDb->VerifyBestBlock(pindex->GetBlockHash());
+    bool fHasBestBlock = proDb->VerifyBestBlock(pindex->GetBlockHash());
 
     if (fDIP0003Active && !fHasBestBlock) {
-        // Nodes that upgraded after DIP3 activation will have to reindex to ensure evodb consistency
-        AbortNode("Found EvoDB inconsistency, you must reindex to continue");
+        // Nodes that upgraded after DIP3 activation will have to reindex to ensure prodb consistency
+        AbortNode("Found ProDB inconsistency, you must reindex to continue");
     }
 
     bool fClean = true;
@@ -1818,7 +1815,7 @@ static DisconnectResult DisconnectBlock(const CBlock& block, CValidationState& s
     instantsend.isAutoLockBip9Active =
             (VersionBitsState(pindex->pprev, Params().GetConsensus(), Consensus::DEPLOYMENT_DIP0003, versionbitscache) == THRESHOLD_ACTIVE);
 
-    evoDb->WriteBestBlock(pindex->pprev->GetBlockHash());
+    proDb->WriteBestBlock(pindex->pprev->GetBlockHash());
 
     return fClean ? DISCONNECT_OK : DISCONNECT_UNCLEAN;
 }
@@ -1972,11 +1969,11 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
 
     if (pindex->pprev) {
         bool fDIP0003Active = VersionBitsState(pindex->pprev, Params().GetConsensus(), Consensus::DEPLOYMENT_DIP0003, versionbitscache) == THRESHOLD_ACTIVE;
-        bool fHasBestBlock = evoDb->VerifyBestBlock(pindex->pprev->GetBlockHash());
+        bool fHasBestBlock = proDb->VerifyBestBlock(pindex->pprev->GetBlockHash());
 
         if (fDIP0003Active && !fHasBestBlock) {
-            // Nodes that upgraded after DIP3 activation will have to reindex to ensure evodb consistency
-            AbortNode("Found EvoDB inconsistency, you must reindex to continue");
+            // Nodes that upgraded after DIP3 activation will have to reindex to ensure prodb consistency
+            AbortNode("Found ProDB inconsistency, you must reindex to continue");
         }
     }
 
@@ -2373,7 +2370,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     GetMainSignals().UpdatedTransaction(hashPrevBestCoinBase);
     hashPrevBestCoinBase = block.vtx[0]->GetHash();
 
-    evoDb->WriteBestBlock(pindex->GetBlockHash());
+    proDb->WriteBestBlock(pindex->GetBlockHash());
 
     int64_t nTime7 = GetTimeMicros(); nTimeCallbacks += nTime7 - nTime6;
     LogPrint("bench", "    - Callbacks: %.2fms [%.2fs]\n", 0.001 * (nTime7 - nTime6), nTimeCallbacks * 0.000001);
@@ -2478,8 +2475,8 @@ bool static FlushStateToDisk(CValidationState &state, FlushStateMode mode, int n
         // Flush the chainstate (which may refer to block index entries).
         if (!pcoinsTip->Flush())
             return AbortNode(state, "Failed to write to coin database");
-        if (!evoDb->CommitRootTransaction()) {
-            return AbortNode(state, "Failed to commit EvoDB");
+        if (!proDb->CommitRootTransaction()) {
+            return AbortNode(state, "Failed to commit ProDB");
         }
         nLastFlush = nNow;
     }
@@ -2579,7 +2576,7 @@ bool static DisconnectTip(CValidationState& state, const CChainParams& chainpara
     // Apply the block atomically to the chain state.
     int64_t nStart = GetTimeMicros();
     {
-        auto dbTx = evoDb->BeginTransaction();
+        auto dbTx = proDb->BeginTransaction();
 
         CCoinsViewCache view(pcoinsTip);
         if (DisconnectBlock(block, state, pindexDelete, view) != DISCONNECT_OK)
@@ -2661,7 +2658,7 @@ bool static ConnectTip(CValidationState& state, const CChainParams& chainparams,
     int64_t nTime3;
     LogPrint("bench", "  - Load block from disk: %.2fms [%.2fs]\n", (nTime2 - nTime1) * 0.001, nTimeReadFromDisk * 0.000001);
     {
-        auto dbTx = evoDb->BeginTransaction();
+        auto dbTx = proDb->BeginTransaction();
 
         CCoinsViewCache view(pcoinsTip);
         bool rv = ConnectBlock(blockConnecting, state, pindexNew, view, chainparams);
@@ -3673,7 +3670,7 @@ bool TestBlockValidity(CValidationState& state, const CChainParams& chainparams,
     indexDummy.nHeight = pindexPrev->nHeight + 1;
 
     // begin tx and let it rollback
-    auto dbTx = evoDb->BeginTransaction();
+    auto dbTx = proDb->BeginTransaction();
 
     // NOTE: CheckBlockHeader is called by CheckBlock
     if (!ContextualCheckBlockHeader(block, state, chainparams.GetConsensus(), pindexPrev, GetAdjustedTime()))
@@ -4029,7 +4026,7 @@ bool CVerifyDB::VerifyDB(const CChainParams& chainparams, CCoinsView *coinsview,
         return true;
 
     // begin tx and let it rollback
-    auto dbTx = evoDb->BeginTransaction();
+    auto dbTx = proDb->BeginTransaction();
 
     // Verify blocks in the best chain
     if (nCheckDepth <= 0)

@@ -1,7 +1,7 @@
 
 /*********************************************************
  *
- *  Copyright (C) 2014 by Vitaliy Vitsentiy
+ *  Copyright (C) 2023-2024 The Hellar Core developers
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.

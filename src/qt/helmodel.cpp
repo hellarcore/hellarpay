@@ -1,4 +1,4 @@
-// Copyright (c) 2015 The Hellar developers
+// Copyright (c) 2023 The Hellar developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +18,6 @@ const int MAX_GOODS_URLS = 2;
 
 const QString GOODS_URLS[MAX_GOODS_URLS] = {
 		"http://hellar.io/goods/",
-		"http://chervonec.com/goods/"
 };
 
 const QString goods_data = "hellar.rcc";

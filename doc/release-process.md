@@ -53,7 +53,7 @@ Check out the source code in the following directory hierarchy.
 
 Write release notes. git shortlog helps a lot, for example:
 
-    git shortlog --no-merges v(current version, e.g. 0.12.2)..v(new version, e.g. 0.12.3)
+    git shortlog --no-merges v(current version, e.g. 1.0.2)..v(new version, e.g. 2.0.1)
 
 Generate list of authors:
 
@@ -61,7 +61,7 @@ Generate list of authors:
 
 Tag version (or release candidate) in git
 
-    git tag -s v(new version, e.g. 0.12.3)
+    git tag -s v(new version, e.g. 2.0.1)
 
 ### Setup and perform Gitian builds
 
@@ -71,7 +71,7 @@ Setup Gitian descriptors:
 
     pushd ./hellar
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
-    export VERSION=(new version, e.g. 0.12.3)
+    export VERSION=(new version, e.g. 2.0.1)
     git fetch
     git checkout v${VERSION}
     popd
@@ -245,7 +245,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
 - Announce the release:
 
-  - Release on Hellar forum: https://www.hellar.io/forum/topic/official-announcements.54/
+  - Release on Hellar forum: https://discord.gg/4yfHvQFWRS
 
   - Hellar-development mailing list
 

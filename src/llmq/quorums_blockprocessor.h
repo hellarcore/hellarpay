@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2023 The Hellar Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,7 +22,7 @@ namespace llmq
 class CQuorumBlockProcessor
 {
 private:
-    CEvoDB& evoDb;
+    CProDB& proDb;
 
     // TODO cleanup
     CCriticalSection minableCommitmentsCs;
@@ -30,7 +30,7 @@ private:
     std::map<uint256, CFinalCommitment> minableCommitments;
 
 public:
-    CQuorumBlockProcessor(CEvoDB& _evoDb) : evoDb(_evoDb) {}
+    CQuorumBlockProcessor(CProDB& _proDb) : proDb(_proDb) {}
 
     void ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman& connman);
 

@@ -1,17 +1,17 @@
-// Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2023 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HEL_EVODB_H
-#define HEL_EVODB_H
+#ifndef HEL_PRODB_H
+#define HEL_PRODB_H
 
 #include "dbwrapper.h"
 #include "sync.h"
 #include "uint256.h"
 
-static const std::string EVODB_BEST_BLOCK = "b_b";
+static const std::string PRODB_BEST_BLOCK = "b_b";
 
-class CEvoDB
+class CProDB
 {
 private:
     CCriticalSection cs;
@@ -26,7 +26,7 @@ private:
     CurTransaction curDBTransaction;
 
 public:
-    CEvoDB(size_t nCacheSize, bool fMemory = false, bool fWipe = false);
+    CProDB(size_t nCacheSize, bool fMemory = false, bool fWipe = false);
 
     std::unique_ptr<ScopedTransaction> BeginTransaction()
     {
@@ -74,6 +74,6 @@ public:
     void WriteBestBlock(const uint256& hash);
 };
 
-extern CEvoDB* evoDb;
+extern CProDB* proDb;
 
-#endif //HEL_EVODB_H
+#endif //HEL_PRODB_H

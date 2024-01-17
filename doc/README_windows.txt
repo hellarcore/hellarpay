@@ -1,4 +1,4 @@
-Hellar Core 0.17.0
+Hellar Core 2.0.1
 =====================
 
 Intro
@@ -18,6 +18,6 @@ However, it downloads and stores the entire history of Hellar transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.
 
-See the Dash documentation at:
-  https://docs.dash.org
+See the Hellar documentation at:
+  https://hellarwiki.notion.site/Hellar-Wiki-14a52755879347e48fd34a24c5ce073c
 for more help and information.

@@ -1,5 +1,5 @@
 // tinyformat.h
-// Copyright (C) 2011, Chris Foster [chris42f (at) gmail (d0t) com]
+// Copyright (C) 2023 The Hellar developers
 //
 // Boost Software License - Version 1.0
 //

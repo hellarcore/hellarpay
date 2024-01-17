@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2023 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,7 @@
 #include "arith_uint256.h"
 #include "bls/bls.h"
 #include "dbwrapper.h"
-#include "evodb.h"
+#include "prodb.h"
 #include "providertx.h"
 #include "simplifiedmns.h"
 #include "sync.h"
@@ -457,14 +457,14 @@ public:
     CCriticalSection cs;
 
 private:
-    CEvoDB& evoDb;
+    CProDB& proDb;
 
     std::map<uint256, CDeterministicMNList> mnListsCache;
     int tipHeight{-1};
     uint256 tipBlockHash;
 
 public:
-    CDeterministicMNManager(CEvoDB& _evoDb);
+    CDeterministicMNManager(CProDB& _proDb);
 
     bool ProcessBlock(const CBlock& block, const CBlockIndex* pindex, CValidationState& state);
     bool UndoBlock(const CBlock& block, const CBlockIndex* pindex);

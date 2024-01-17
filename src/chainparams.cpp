@@ -1,7 +1,4 @@
-// Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2021-2023 The Hellar Core developers
+// Copyright (c) 2023-2024 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -228,10 +225,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0003].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00");// Start
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000007cb192862fc5ca9");// 87951
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00"); // 1025000
+        consensus.defaultAssumeValid = uint256S("0x00000000000c0a461bac49d52f8d2a21777e661d9bccf90b09ef4f1b5f57b5d4"); // 87951
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.

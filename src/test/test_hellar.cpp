@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2023-2024 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,9 +24,9 @@
 
 #include "test/testutil.h"
 
-#include "evo/specialtx.h"
-#include "evo/deterministicmns.h"
-#include "evo/cbtx.h"
+#include "pro/specialtx.h"
+#include "pro/deterministicmns.h"
+#include "pro/cbtx.h"
 #include "llmq/quorums_init.h"
 
 #include <memory>
@@ -51,15 +51,15 @@ BasicTestingSetup::BasicTestingSetup(const std::string& chainName)
         fPrintToDebugLog = false; // don't want to write to debug.log file
         fCheckBlockIndex = true;
         SelectParams(chainName);
-        evoDb = new CEvoDB(1 << 20, true, true);
-        deterministicMNManager = new CDeterministicMNManager(*evoDb);
+        proDb = new CProDB(1 << 20, true, true);
+        deterministicMNManager = new CDeterministicMNManager(*proDb);
         noui_connect();
 }
 
 BasicTestingSetup::~BasicTestingSetup()
 {
         delete deterministicMNManager;
-        delete evoDb;
+        delete proDb;
 
         ECC_Stop();
         g_connman.reset();
@@ -78,7 +78,7 @@ TestingSetup::TestingSetup(const std::string& chainName) : BasicTestingSetup(cha
         mempool.setSanityCheck(1.0);
         pblocktree = new CBlockTreeDB(1 << 20, true);
         pcoinsdbview = new CCoinsViewDB(1 << 23, true);
-        llmq::InitLLMQSystem(*evoDb);
+        llmq::InitLLMQSystem(*proDb);
         pcoinsTip = new CCoinsViewCache(pcoinsdbview);
         InitBlockIndex(chainparams);
         {

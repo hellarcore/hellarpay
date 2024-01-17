@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2023 The Hellar Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,9 +11,9 @@
 namespace llmq
 {
 
-void InitLLMQSystem(CEvoDB& evoDb)
+void InitLLMQSystem(CProDB& proDb)
 {
-    quorumBlockProcessor = new CQuorumBlockProcessor(evoDb);
+    quorumBlockProcessor = new CQuorumBlockProcessor(proDb);
     quorumDummyDKG = new CDummyDKG();
 }
 

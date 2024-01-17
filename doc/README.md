@@ -1,9 +1,7 @@
-Hellar 0.17.0
+Hellar 2.0.1
 ====================
 
-Copyright (c) 2009-2018 Bitcoin Developers
-Copyright (c) 2014-2019 Dash Core Developers
-Copyright (c) 2015-2020 Hellar Developers
+Copyright (c) 2023-2024 Hellar Developers
 
 This is the official reference wallet for Hellar digital currency and comprises the backbone of the Hellar peer-to-peer network. You can [download Hellar Core](https://www.hellar.io/downloads/) or [build it yourself](#building) using the guides below.
 
@@ -28,10 +26,9 @@ Drag Hellar-Qt to your applications folder, and then run Hellar-Qt.
 
 ### Need Help?
 
-* See the [Hellar documentation](https://docs.hellar.io)
+* See the [Hellar documentation](https://hellarwiki.notion.site/Hellar-Wiki-14a52755879347e48fd34a24c5ce073c)
 for help and more information.
-* Ask for help on [Hellar Nation Discord](http://hellarchat.io)
-* Ask for help on the [Hellar Forum](https://hellar.io/forum)
+* Ask for help on [Hellar Nation Discord](https://discord.gg/4yfHvQFWRS )
 
 Building
 ---------------------
@@ -61,8 +58,7 @@ The Hellar Core repo's [root README](/README.md) contains relevant information o
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [Hellar Forum](https://hellar.io/forum), in the Development & Technical Discussion board.
-* Discuss on [Hellar Nation Discord](http://hellarchat.io)
+* Discuss on [Hellar Nation Discord](https://discord.gg/4yfHvQFWRS)
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
@@ -76,4 +72,4 @@ License
 ---------------------
 Distributed under the [MIT software license](/COPYING).
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
-cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.
+

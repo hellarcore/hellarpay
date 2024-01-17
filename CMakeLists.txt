@@ -72,8 +72,8 @@ file(GLOB SOURCE_FILES
         src/zmq/*.h
         src/*.cpp
         src/*.h
-        src/evo/*.h
-        src/evo/*.cpp
+        src/pro/*.h
+        src/pro/*.cpp
         src/llmq/*.h
         src/llmq/*.cpp
         src/rpc/*.cpp

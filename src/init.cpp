@@ -1,7 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2021-2023 The Hellar developers
+// Copyright (c) 2023-2024 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -68,7 +65,7 @@
 #include "spork.h"
 #include "warnings.h"
 
-#include "evo/deterministicmns.h"
+#include "pro/deterministicmns.h"
 
 #include "llmq/quorums_init.h"
 
@@ -322,8 +319,8 @@ void PrepareShutdown()
         llmq::DestroyLLMQSystem();
         delete deterministicMNManager;
         deterministicMNManager = NULL;
-        delete evoDb;
-        evoDb = NULL;
+        delete proDb;
+        proDb = NULL;
     }
 #ifdef ENABLE_WALLET
     if (pwalletMain)
@@ -663,9 +660,9 @@ std::string HelpMessage(HelpMessageMode mode)
 std::string LicenseInfo()
 {
     const std::string URL_SOURCE_CODE = "<https://github.com/Hellarpay/hellar>";
-    const std::string URL_WEBSITE = "<https://hellar.money>";
+    const std::string URL_WEBSITE = "<https://hellar.io>";
 
-    return CopyrightHolders(_("Copyright (C)"), 2015, COPYRIGHT_YEAR) + "\n" +
+    return CopyrightHolders(_("Copyright (C)"), 2023, COPYRIGHT_YEAR) + "\n" +
            "\n" +
            strprintf(_("Please contribute if you find %s useful. "
                        "Visit %s for further information about the software."),
@@ -1737,7 +1734,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
     nTotalCache -= nCoinDBCache;
     nCoinCacheUsage = nTotalCache; // the rest goes to in-memory cache
     int64_t nMempoolSizeMax = GetArg("-maxmempool", DEFAULT_MAX_MEMPOOL_SIZE) * 1000000;
-    int64_t nEvoDbCache = 1024 * 1024 * 16; // TODO
+    int64_t nProDbCache = 1024 * 1024 * 16; // TODO
     LogPrintf("Cache configuration:\n");
     LogPrintf("* Using %.1fMiB for block index database\n", nBlockTreeDBCache * (1.0 / 1024 / 1024));
     LogPrintf("* Using %.1fMiB for chain state database\n", nCoinDBCache * (1.0 / 1024 / 1024));
@@ -1762,15 +1759,15 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
                 delete pblocktree;
                 llmq::DestroyLLMQSystem();
                 delete deterministicMNManager;
-                delete evoDb;
+                delete proDb;
 
-                evoDb = new CEvoDB(nEvoDbCache, false, fReindex || fReindexChainState);
-                deterministicMNManager = new CDeterministicMNManager(*evoDb);
+                proDb = new CProDB(nProDbCache, false, fReindex || fReindexChainState);
+                deterministicMNManager = new CDeterministicMNManager(*proDb);
                 pblocktree = new CBlockTreeDB(nBlockTreeDBCache, false, fReindex);
                 pcoinsdbview = new CCoinsViewDB(nCoinDBCache, false, fReindex || fReindexChainState);
                 pcoinscatcher = new CCoinsViewErrorCatcher(pcoinsdbview);
                 pcoinsTip = new CCoinsViewCache(pcoinscatcher);
-                llmq::InitLLMQSystem(*evoDb);
+                llmq::InitLLMQSystem(*proDb);
 
                 if (fReindex) {
                     pblocktree->WriteReindexing(true);

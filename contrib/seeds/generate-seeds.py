@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2017 Wladimir J. van der Laan
+# Copyright (c) 2023-2024 The Hellar Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''
@@ -127,10 +127,10 @@ def main():
     g.write(' * IPv4 as well as onion addresses are wrapped inside a IPv6 address accordingly.\n')
     g.write(' */\n')
     with open(os.path.join(indir,'nodes_main.txt'),'r') as f:
-        process_nodes(g, f, 'pnSeed6_main', 9998)
+        process_nodes(g, f, 'pnSeed6_main', 7778)
     g.write('\n')
     with open(os.path.join(indir,'nodes_test.txt'),'r') as f:
-        process_nodes(g, f, 'pnSeed6_test', 19998)
+        process_nodes(g, f, 'pnSeed6_test', 27787)
     g.write('#endif // HELLAR_CHAINPARAMSSEEDS_H\n')
             
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-// Copyright (c) 2016 The Bitcoin Core developers
+// Copyright (c) 2023-2024 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +14,7 @@
 #include "univalue.h"
 #include "util.h"
 
-#include "evo/deterministicmns.h"
+#include "pro/deterministicmns.h"
 #include "llmq/quorums_init.h"
 
 #include <QDir>
@@ -50,12 +50,12 @@ void RPCNestedTests::rpcNestedTests()
     dir.mkpath(".");
     ForceSetArg("-datadir", path);
     //mempool.setSanityCheck(1.0);
-    evoDb = new CEvoDB(1 << 20, true, true);
+    proDb = new CProDB(1 << 20, true, true);
     pblocktree = new CBlockTreeDB(1 << 20, true);
     pcoinsdbview = new CCoinsViewDB(1 << 23, true);
-    deterministicMNManager = new CDeterministicMNManager(*evoDb);
+    deterministicMNManager = new CDeterministicMNManager(*proDb);
 
-    llmq::InitLLMQSystem(*evoDb);
+    llmq::InitLLMQSystem(*proDb);
 
     pcoinsTip = new CCoinsViewCache(pcoinsdbview);
     InitBlockIndex(chainparams);

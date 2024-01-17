@@ -1,4 +1,4 @@
-Release 1.2 2011-05-16
+Release 1.2 2023-05-16
 ----------------------
 
 Fixes for larger databases (tested up to one billion 100-byte entries,

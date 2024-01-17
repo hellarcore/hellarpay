@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2023-2024 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +13,7 @@
 // Serial Number: 10302349811211485352 (0x8ef94c91b112c0a8)
 // Issuer: CN=PaymentRequest Test CA
 // Subject: CN=PaymentRequest Test CA
-// Not Valid After : Dec  8 16:37:24 2022 GMT
+// Not Valid After : Dec  8 16:37:24 2024 GMT
 //
 const char* caCert1_BASE64 =
 "\
@@ -32,7 +32,7 @@ p3waRjPD4bUX3nv+ojz5s4puw7Qq5QUZlhGsMzPvwDGCmZkL\
 // Serial Number: f0:da:97:e4:38:d7:64:16
 // Issuer: CN=PaymentRequest Test CA
 // Subject: CN=PaymentRequest Test CA
-// Not Valid After : Jan  8 18:21:06 2025 GMT
+// Not Valid After : Jan  8 18:21:06 2028 GMT
 //
 const char* caCert2_BASE64 =
 "\

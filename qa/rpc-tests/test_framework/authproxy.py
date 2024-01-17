@@ -1,6 +1,6 @@
 
 """
-  Copyright (c) 2011 Jeff Garzik
+  Copyright (c) 2023-2024 The Hellar Core developers
 
   AuthServiceProxy has the following improvements over python-jsonrpc's
   ServiceProxy class:
@@ -14,8 +14,6 @@
   - uses standard Python json lib
 
   Previous copyright, from python-jsonrpc/jsonrpc/proxy.py:
-
-  Copyright (c) 2007 Jan-Klaas Kollhof
 
   This file is part of jsonrpc.
 

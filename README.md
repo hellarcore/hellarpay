@@ -1,6 +1,6 @@
 <h1 align="center"> 
 <br/><br/>
-<img src="https://github.com/hellarcore/hellarpay/blob/master/src/qt/res/images/hellar.png" alt="Hellar" width="300"/>
+<img src="https://github.com/hellarcore/hellar/blob/master/src/qt/res/images/hellar.png" alt="Hellar" width="300"/>
 </h1>
 
 <div align="center">
@@ -13,7 +13,7 @@ Hellar Core
 
 |CI|master|develop|
 |-|-|-|
-|GitHub|[![Build Status](https://github.com/hellarcore/hellarpay/blob/master/src/qt/res/images/pipeline.svg)]()|[![Build Status](https://github.com/hellarcore/hellarpay/blob/master/src/qt/res/images/pipeline%20(1).svg)]()|
+|GitHub|[![Build Status](https://github.com/hellarcore/hellar/blob/master/src/qt/res/images/pipeline.svg)]()|[![Build Status](https://github.com/hellarcore/hellar/blob/master/src/qt/res/images/pipeline%20(1).svg)]()|
 
 
 <div align="left">
@@ -83,4 +83,4 @@ Translations are periodically pulled from Transifex and merged into the git repo
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
 
-Translators should also follow the [forum](https://discord.gg/4yfHvQFWRS - Hellar Official Community Discord Forum).
+Translators should also follow the [forum](https://www.hellar.io/forum/topic/hellar-worldwide-collaboration.88/).

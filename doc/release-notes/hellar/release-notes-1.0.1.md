@@ -104,13 +104,11 @@ other payload information (DIP0002).
 The new system is going to be activated via combination of a BIP9-like deployment (bit 3) and new spork
 (`SPORK_16_DETERMINISTIC_MNS_ENABLED`).
 
-Read more: https://github.com/dashpay/dips/blob/master/dip-0003.md
-Upgrade instructions: https://docs.dash.org/DIP3-masternode-upgrade
 
 DIP0004 - Simplified Verification of Deterministic Masternode Lists
 -------------------------------------------------------------------
 A verifiable and correct masternode list is foundational to many Hellar features, including verification
-of an InstantSend transaction, mixing in PrivateSend and many features of Evolution. The deterministic
+of an InstantSend transaction, mixing in PrivateSend and many features of Progress. The deterministic
 masternode lists introduced by DIP0003 enable full derivation and verification of a masternode list via
 on-chain data. This, however, requires the full chain to be available to construct or verify this list.
 A SPV client does not have the full chain and thus would have to rely on a list provided by one or more
@@ -118,7 +116,6 @@ nodes in the network. This provided list must be verifiable by the SPV client wi
 chain. This DIP proposes additions to the block’s coinbase transaction and new P2P messages to get and
 update a masternode list with additional proof data.
 
-Read more: https://github.com/dashpay/dips/blob/master/dip-0004.md
 
 Mining
 ------
@@ -269,7 +266,7 @@ Lots of refactoring and bug fixes
 
 A lot of refactoring, code cleanups and other small fixes were done in this release.
 
-0.0.1.0 Change log
+1.0.1.0 Change log
 ===================
 
 See detailed [set of changes](https://github.com/Hellarpay/hellar/compare/Hellarpay:v0.17.0.0).
@@ -280,30 +277,12 @@ Credits
 Thanks to everyone who directly contributed to this release:
 
 - Hellarpay
-- TriKriSta
-- Alexander Block
-- UdjinM6
-- PastaPastaPasta
-- gladcow
-- Nathan Marley
-- thephez
-- strophy
-- PaulieD
-- InhumanPerfection
-- Spencer Lievens
-- -k
-- Salisbury
-- Solar Designer
-- Oleg Girko
-- Anton Suprunchuk
 
 As well as everyone that submitted issues, reviewed pull requests or helped translating on
 [Transifex](https://www.transifex.com/projects/p/hellar/).
 
 Older releases
 ==============
-
-Hellar Core tree 0.0.1 was a fork of Dash Core tree 0.12,
 
 Hellar Core tree 1.0.x was a fork of Sibcoin Core tree 0.17.0.x.
 

@@ -1,16 +1,16 @@
-// Copyright (c) 2018 The Dash Core developers
+// Copyright (c) 2023 The Hellar Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef HEL_QUORUMS_INIT_H
 #define HEL_QUORUMS_INIT_H
 
-class CEvoDB;
+class CProDB;
 
 namespace llmq
 {
 
-void InitLLMQSystem(CEvoDB& evoDb);
+void InitLLMQSystem(CProDB& proDb);
 void DestroyLLMQSystem();
 
 }

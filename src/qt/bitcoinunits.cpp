@@ -1,5 +1,4 @@
-// Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2023-2024 The Hellar Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,7 +21,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
     unitlist.append(HEL);
     unitlist.append(mHEL);
     unitlist.append(uHEL);
-    unitlist.append(ivans);
+    unitlist.append(hellars);
     return unitlist;
 }
 
@@ -33,7 +32,7 @@ bool BitcoinUnits::valid(int unit)
     case HEL:
     case mHEL:
     case uHEL:
-    case ivans:
+    case hellars:
         return true;
     default:
         return false;
@@ -49,7 +48,7 @@ QString BitcoinUnits::name(int unit)
             case HEL: return QString("HEL");
             case mHEL: return QString("mHEL");
             case uHEL: return QString::fromUtf8("μHEL");
-            case ivans: return QString::fromUtf8("ivans");
+            case hellars: return QString::fromUtf8("hellars");
             default: return QString("???");
         }
     }
@@ -60,7 +59,7 @@ QString BitcoinUnits::name(int unit)
             case HEL: return QString("tHEL");
             case mHEL: return QString("mtHEL");
             case uHEL: return QString::fromUtf8("μtHEL");
-            case ivans: return QString::fromUtf8("tivans");
+            case hellars: return QString::fromUtf8("tivans");
             default: return QString("???");
         }
     }
@@ -75,7 +74,7 @@ QString BitcoinUnits::description(int unit)
             case HEL: return QString("Hel");
             case mHEL: return QString("Milli-Hel (1 / 1,000)");
             case uHEL: return QString("Micro-Hel (1 / 1,000,000)");
-            case ivans: return QString("Ten Nano-Hel (1 / 100,000,000)");
+            case hellars: return QString("Ten Nano-Hel (1 / 100,000,000)");
             default: return QString("???");
         }
     }
@@ -86,7 +85,7 @@ QString BitcoinUnits::description(int unit)
             case HEL: return QString("TestHels");
             case mHEL: return QString("Milli-TestHel (1 / 1,000)");
             case uHEL: return QString("Micro-TestHel (1 / 1,000,000)");
-            case ivans: return QString("Ten Nano-TestHel (1 / 100,000,000)");
+            case hellars: return QString("Ten Nano-TestHel (1 / 100,000,000)");
             default: return QString("???");
         }
     }
@@ -99,7 +98,7 @@ qint64 BitcoinUnits::factor(int unit)
     case HEL:  return 100000000;
     case mHEL: return 100000;
     case uHEL: return 100;
-    case ivans: return 1;
+    case hellars: return 1;
     default:   return 100000000;
     }
 }
@@ -111,7 +110,7 @@ int BitcoinUnits::decimals(int unit)
     case HEL: return 8;
     case mHEL: return 5;
     case uHEL: return 2;
-    case ivans: return 0;
+    case hellars: return 0;
     default: return 0;
     }
 }

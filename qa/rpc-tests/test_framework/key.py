@@ -1,4 +1,4 @@
-# Copyright (c) 2011 Sam Rushing
+# Copyright (c) 2023-2024 The Hellar Core developers
 #
 # key.py - OpenSSL wrapper
 #

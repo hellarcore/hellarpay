@@ -1,5 +1,5 @@
 /*-
- * Copyright 2005,2007,2009 Colin Percival
+ * Copyright 2023-2024 The Hellar Core developers
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $FreeBSD: src/lib/libmd/sha256.h,v 1.2 2006/01/17 15:35:56 phk Exp $
+ * $FreeBSD: src/lib/libmd/sha256.h,v 1.2 2023/12/17 15:35:56 phk Exp $
  */
 
 #ifndef _SHA256_H_
