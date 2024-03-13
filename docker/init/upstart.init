@@ -1,0 +1,15 @@
+# Copy to /etc/init/docker-hellard.conf
+description "Docker container for hellard p2p node"
+start on filesystem and started docker
+stop on runlevel [!2345]
+respawn
+pre-start script
+  # Clean-up if left behind
+  docker rm -f hellard-node || true
+  
+  # Attempt to always update and fail silently if the network isn't ready
+  docker pull hellarcore/hellard || true
+end script
+script
+  exec docker run --rm -v hellard-data:/hellar --name=hellard-node --rm -p 7778:7778 -p 127.0.0.1:7788:7788 hellarcore/hellard
+end script
