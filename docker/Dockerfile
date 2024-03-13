@@ -16,7 +16,7 @@ RUN chown hellar:hellar -R /hellar
 
 COPY hellarcore-2.0.4.9-x86_64-linux-gnu.tar.gz /tmp/
 RUN tar -xvf /tmp/hellarcore-2.0.4.9-x86_64-linux-gnu.tar.gz -C /tmp/
-RUN cp /tmp/hellarcore*/bin/* /usr/local/bin
+RUN cp /tmp/hellarcore*/docker/bin/* /usr/local/bin
 RUN rm -rf /tmp/hellarcore*
 
 ADD ./bin /usr/local/bin
