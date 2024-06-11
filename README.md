@@ -6,7 +6,7 @@
 <div align="center">
 <h1 align="center">
 
-Hellar Core
+Hellar Core 3.0.0.1 RS
 ===========
 
 <div align="center">
